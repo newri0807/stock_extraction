@@ -21,7 +21,7 @@ export const Extraction = () => {
                 aria-label="lab API tabs example"
               >
                 <Tab className="tab0" label="샘플 뉴스" value="0" />
-                <Tab label="카카오" value="1" className="keywordBtn" />
+                <Tab label="카카오" value="1" />
                 <Tab label="화장품" value="2" />
                 <Tab label="삼성" value="3" />
                 <Tab label="스마트폰" value="4" />
