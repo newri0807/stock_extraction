@@ -36,7 +36,7 @@ const DemoPie = () => {
       },
     ],
   };
-  return <Pie {...config} />;
+  return <Pie {...config} width={300} height={300} />;
 };
 
 export { DemoPie };
