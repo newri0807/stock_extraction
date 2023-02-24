@@ -78,7 +78,7 @@ export const Result = () => {
                   <p
                     style={{
                       marginTop: "12px",
-                      height: "19px",
+                      minHeight: "1em",
                       fontWeight: "bold",
                       color: "rgb(99, 149, 249)",
                     }}
@@ -99,7 +99,7 @@ export const Result = () => {
                   <p
                     style={{
                       marginTop: "12px",
-                      height: "19px",
+                      minHeight: "1em",
                       fontWeight: "bold",
                       color: "rgb(98, 218, 171)",
                     }}
