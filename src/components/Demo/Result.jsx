@@ -1,5 +1,5 @@
 import React from "react";
-import { DemoPie } from "../../Data/pieChart";
+import { DemoPie } from "../../data/pieChart";
 import { LoadingButton } from "@mui/lab";
 import { colorPick } from "../../func/colorPick";
 
