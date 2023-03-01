@@ -1,7 +1,7 @@
 import React from "react";
 import { DemoPie } from "../../data/pieChart";
 import { LoadingButton } from "@mui/lab";
-import { colorPick } from "../func/colorPick";
+import { colorPick } from "../../func/colorPick";
 
 export const Result = ({ dataList, loading }) => {
   const percentageCal = (percent) => {
