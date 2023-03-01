@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Box, Button, Tab, Input, TextareaAutosize, Grid } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import styled from "@emotion/styled";
-import { sampleNews } from "../../data/sampleNews";
+import { sampleNews } from "../../Data/sampleNews";
 
 export const Extraction = ({ buttonClick, value, setValue }) => {
   const handleChange = (e, newValue) => {
