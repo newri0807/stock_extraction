@@ -22,6 +22,8 @@ const DemoPie = ({ datas }) => {
           return "rgb(99, 109, 249)";
         case ["율호"].includes(stock):
           return "rgb(79, 109, 249)";
+        case ["서보산업"].includes(stock):
+          return "rgb(79, 9, 149)";
         default:
           return "rgb(245, 245, 245)";
       }

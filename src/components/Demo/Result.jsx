@@ -37,6 +37,12 @@ export const Result = ({ dataList, loading }) => {
             fontWeight: "bold",
             opacity: "1",
           };
+        case ["서보산업"].includes(stock):
+          return {
+            color: "rgb(79, 9, 149)",
+            fontWeight: "bold",
+            opacity: "1",
+          };
         default:
           return { color: "#000" };
       }
@@ -63,6 +69,10 @@ export const Result = ({ dataList, loading }) => {
         case ["율호"].includes(stock):
           return {
             backgroundColor: "rgba(79, 109, 249, 0.15)",
+          };
+        case ["서보산업"].includes(stock):
+          return {
+            backgroundColor: "rgba(79, 9, 149, 0.15)",
           };
         default:
           return { backgroundColor: "rgb(245, 245, 245)" };
