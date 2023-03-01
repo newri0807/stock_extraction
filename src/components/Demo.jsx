@@ -14,6 +14,7 @@ const Demo = () => {
     axios({
       method: "get", // 통신 방식
       url: `${url}/stock/news?idx=${value}`, // 서버
+      timeout: 2000,
     })
       .then(function (response) {
         //console.log(response.data);
