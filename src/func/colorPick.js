@@ -14,7 +14,6 @@ const colorPick = (stock, type) => {
           opacity: "1",
         };
       case ["한솔케미칼", "엔켐"].includes(stock):
-        console.log("한솔케미칼");
         return {
           color: "rgb(101, 119, 152)",
           fontWeight: "bold",
