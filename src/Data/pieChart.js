@@ -1,24 +1,31 @@
 import React from "react";
 import { Pie } from "@ant-design/plots";
 
-const DemoPie = () => {
-  const data = [
-    {
-      stock: "한솔케미칼", // 회사이름
-      score: 0.7434849143028259, //결과수치
-      logit: 21.69752311706543, //뉴스와 회사명의 밀접도
-    },
-    {
-      stock: "SK",
-      score: 0.24532733857631683,
-      logit: 20.588768005371094,
-    },
-  ];
+const DemoPie = ({ datas }) => {
+  const data = datas;
   const config = {
     appendPadding: 10,
     data,
     angleField: "score",
     colorField: "stock",
+    color: ({ stock }) => {
+      switch (true) {
+        case ["SK하이닉스", "SK증권", "한국테크놀로지", "현대차"].includes(
+          stock
+        ):
+          return "rgb(99, 149, 249)";
+        case ["SK", "엔비디아", "율호"].includes(stock):
+          return "rgb(98, 218, 171)";
+        case ["한솔케미칼", "엔켐"].includes(stock):
+          return "rgb(101, 119, 152)";
+        case ["광무"].includes(stock):
+          return "rgb(99, 109, 249)";
+        case ["율호"].includes(stock):
+          return "rgb(79, 109, 249)";
+        default:
+          return "rgb(245, 245, 245)";
+      }
+    },
     radius: 0.9,
     legend: false,
     label: {
@@ -30,6 +37,7 @@ const DemoPie = () => {
         textAlign: "center",
       },
     },
+
     interactions: [
       {
         type: "element-active",
