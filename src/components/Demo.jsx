@@ -27,7 +27,6 @@ const Demo = () => {
 
   useEffect(() => {
     const timeout = setTimeout(() => buttonClick, 2000);
-    console.log(timeout);
     return () => clearTimeout(timeout);
   }, [buttonClick, dataList]);
 
