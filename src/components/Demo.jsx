@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Extraction } from "./Demo/Extraction";
 import { Result } from "./Demo/Result";
 
@@ -9,7 +9,8 @@ const Demo = () => {
   const [loading, setLoading] = useState(false);
   const url = "https://d9390710-b9c8-490b-8005-e11d0772b58c.mock.pstmn.io";
 
-  const buttonClick = () => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const buttonClick = useCallback(() => {
     setLoading(true);
     axios({
       method: "get", // 통신 방식
@@ -22,7 +23,13 @@ const Demo = () => {
         setLoading(false);
       })
       .catch((err) => console.log(err.message));
-  };
+  });
+
+  useEffect(() => {
+    const timeout = setTimeout(() => buttonClick, 2000);
+    console.log(timeout);
+    return () => clearTimeout(timeout);
+  }, [buttonClick, dataList]);
 
   return (
     <div style={{ backgroundColor: "rgb(255, 255, 255)" }}>
