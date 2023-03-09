@@ -15,20 +15,16 @@ const Demo = () => {
     axios({
       method: "get", // 통신 방식
       url: `${url}/stock/news?idx=${value}`, // 서버
-      timeout: 2000,
     })
       .then(function (response) {
         //console.log(response.data);
-        setDataList(response.data);
-        setLoading(false);
+        setTimeout(() => {
+          setDataList(response.data);
+          setLoading(false);
+        }, 2000);
       })
       .catch((err) => console.log(err.message));
   });
-
-  useEffect(() => {
-    const timeout = setTimeout(() => buttonClick, 2000);
-    return () => clearTimeout(timeout);
-  }, [buttonClick, dataList]);
 
   return (
     <div style={{ backgroundColor: "rgb(255, 255, 255)" }}>
