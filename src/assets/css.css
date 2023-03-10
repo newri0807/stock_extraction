@@ -111,6 +111,13 @@ body::-webkit-scrollbar { display:none; } /*크롬 스크롤바 없애기*/
 .list-contents > p > span { font-size: 30px!important; vertical-align: sub; } 
 .subtitleResult-contents div p > span { margin-top: -20px!important;; font-size: 30px!important; vertical-align: sub; } 
 
+#loginContainer { width: 100%; clear: both; margin: 100px auto; padding: 15vh 0; height: 100vh; } 
+#loginContainer form { background: #fff; width: 40%; margin: 34px auto; display: flex; justify-content: center; border-radius: 5px; padding: 100px 0; gap: 20px; flex-wrap: wrap; } 
+#loginContainer form h3 { width: 100%; text-align: center; } 
+#loginContainer .MuiFormControl-root { width: 80%!important; } 
+#login-submit-btn.MuiButtonBase-root { height: 57px!important; width: 80%!important; margin-right: 0%!important; } 
+
+
 /******************************************* 반응형 ****************************************************/
 
 @media (max-width:1023px){

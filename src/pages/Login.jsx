@@ -1,3 +1,4 @@
+import { Button, TextField } from "@mui/material";
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -28,7 +29,6 @@ export const Login = () => {
         }
       )
       .then(function (response) {
-        console.log(response.data, response.data["user_id"]);
         sessionStorage.setItem("loginUserID", response.data["user_id"]);
         sessionStorage.setItem("loginUserPW", response.data.user_pw);
         sessionStorage.setItem("loginUserName", response.data.user_name);
@@ -38,28 +38,33 @@ export const Login = () => {
   };
 
   return (
-    <div
-      style={{
-        width: "100%",
-        clear: "both",
-        margin: "120px auto",
-        height: "90vh",
-        background: "#fff",
-      }}
-    >
-      <input
-        type="text"
-        placeholder="아이디"
-        value={inputId}
-        onChange={handleInputId}
-      />
-      <input
-        type="text"
-        placeholder="패스워드"
-        value={inputPw}
-        onChange={handleInputPw}
-      />
-      <button onClick={onClickLogin}>로그인</button>
+    <div id="loginContainer">
+      <form action="">
+        <h3>Login</h3>
+        <TextField
+          id="outlined-basic"
+          label="아이디"
+          variant="outlined"
+          placeholder="아이디"
+          value={inputId}
+          onChange={handleInputId}
+        />
+        <TextField
+          id="outlined-basic"
+          label="패스워드"
+          variant="outlined"
+          placeholder="패스워드"
+          value={inputPw}
+          onChange={handleInputPw}
+        />
+        <Button
+          variant="contained"
+          onClick={onClickLogin}
+          id="login-submit-btn"
+        >
+          로그인
+        </Button>
+      </form>
     </div>
   );
 };
