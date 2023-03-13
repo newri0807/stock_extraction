@@ -16,25 +16,36 @@ export const Login = () => {
   };
 
   const navigate = useNavigate();
-  const onClickLogin = () => {
-    if (inputId === "" || inputPw === "") {
-      return;
-    }
-    axios
-      .post(
+
+  const onClickLogin = async () => {
+    if (!inputId || !inputPw) return;
+
+    try {
+      const data = {
+        user_id: inputId,
+        user_pw: inputPw,
+      };
+
+      const response = await axios.post(
         "https://d9390710-b9c8-490b-8005-e11d0772b58c.mock.pstmn.io/login",
-        {
-          user_id: inputId,
-          user_pw: inputPw,
-        }
-      )
-      .then(function (response) {
-        sessionStorage.setItem("loginUserID", response.data["user_id"]);
-        sessionStorage.setItem("loginUserPW", response.data.user_pw);
-        sessionStorage.setItem("loginUserName", response.data.user_name);
-        setTimeout(navigate("/stock"), 1000);
-      })
-      .catch((err) => console.log(err.message));
+        JSON.stringify(data),
+        { headers: { "Content-Type": "application/json" } }
+      );
+
+      const { user_id, user_pw, user_name } = response.data;
+
+      // if (!user_name) {
+      //   throw new Error("User name is undefined");
+      // }
+
+      sessionStorage.setItem("loginUserID", user_id);
+      sessionStorage.setItem("loginUserPW", user_pw);
+      sessionStorage.setItem("loginUserName", user_name);
+
+      setTimeout(() => navigate("/stock"), 1000);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
