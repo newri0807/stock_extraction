@@ -10,39 +10,37 @@ const Demo = () => {
   const url = "https://d9390710-b9c8-490b-8005-e11d0772b58c.mock.pstmn.io";
   const [stockArrs, setStockArrs] = useState([]);
 
-  const stockArr = [];
-  const stockList = (data) => {
-    data.answer.map((item) => stockArr.push(item.stock));
-    // eslint-disable-next-line array-callback-return
-    data.sentence.map((item) => {
-      if (
-        item.condition.length !== 0 &&
-        stockArr.indexOf(Object.values(item.condition[0].stock).join("")) === -1
-      ) {
-        stockArr.push(Object.values(item.condition[0].stock).join(""));
-      }
-    });
-  };
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const buttonClick = useCallback(() => {
+  const buttonClick = () => {
     setLoading(true);
     axios({
-      method: "get", // 통신 방식
-      url: `${url}/stock/news?idx=${value}`, // 서버
+      method: "get",
+      url: `${url}/stock/news?idx=${value}`,
     })
       .then(function (response) {
-        //console.log(response.data);
+        const data = response.data;
+        const stockArr = [];
+        data.answer.map((item) => stockArr.push(item.stock));
+        data.sentence.map((item) => {
+          if (
+            item.condition.length !== 0 &&
+            stockArr.indexOf(
+              Object.values(item.condition[0].stock).join("")
+            ) === -1
+          ) {
+            stockArr.push(Object.values(item.condition[0].stock).join(""));
+          }
+        });
+        setDataList(data);
+        setStockArrs(stockArr);
         setTimeout(() => {
-          setDataList(response.data);
-          stockList(response.data);
-          setStockArrs(stockArr);
           setLoading(false);
         }, 2000);
       })
-      .catch((err) => console.log(err.message));
-  });
-
+      .catch((err) => {
+        console.log(err.message);
+        setLoading(false);
+      });
+  };
   return (
     <div style={{ backgroundColor: "rgb(255, 255, 255)" }}>
       <div className="demoContainer ">
