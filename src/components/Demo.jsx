@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Extraction } from "./Demo/Extraction";
 import { Result } from "./Demo/Result";
 
@@ -20,6 +20,7 @@ const Demo = () => {
         const data = response.data;
         const stockArr = [];
         data.answer.map((item) => stockArr.push(item.stock));
+        // eslint-disable-next-line array-callback-return
         data.sentence.map((item) => {
           if (
             item.condition.length !== 0 &&

@@ -7,7 +7,7 @@ export default function Stock() {
   const loginUserCk = sessionStorage.getItem("loginUserName");
   useEffect(() => {
     if (loginUserCk) alert(`${loginUserCk}님, 환영합니다`);
-  }, []);
+  }, [loginUserCk]);
 
   return (
     <div className="container">

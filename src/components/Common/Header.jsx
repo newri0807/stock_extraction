@@ -11,7 +11,7 @@ const Header = () => {
           </a>
           <ul>
             <li className="on">
-              <a href="/">종목추천</a>
+              <a href="/stock">종목추천</a>
             </li>
           </ul>
         </nav>
