@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logoImg from "../../assets/logo.png";
 
 const Header = () => {
@@ -11,7 +12,7 @@ const Header = () => {
           </a>
           <ul>
             <li className="on">
-              <a href="/stock">종목추천</a>
+              <Link to="/stock">종목추천</Link>
             </li>
           </ul>
         </nav>
